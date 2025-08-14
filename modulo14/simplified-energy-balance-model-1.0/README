@@ -1,0 +1,17 @@
+Simplified energy balance model including a snowdrift parametrization
+Author: Franziska Temme, Johannes Fürst
+Last update: 05. April 2023
+#######################################################
+
+Reference:
+Temme, Franziska; Farías-Barahona, David; Seehaus, Thorsten; Jaña, Ricardo; Arigony-Neto, Jorge; Gonzalez, Inti; Arndt, Anselm; Sauter, Tobias; Schneider, Christoph; Fürst, Johannes Jakob (in review): Strategies for Regional Modelling of Surface Mass Balance at the Monte Sarmiento Massif, Tierra del Fuego. https://doi.org/10.5194/egusphere-2022-1036
+
+The simplified energy balance model calculates the surface mass balance based on air temperature and radiation. Radiation can be global or potential.
+Accumulation is taken from the precipitation using a temperature threshold.
+The snowfall is adjusted by a parametrization for snowdrift (slightly modified based on Warscher et al. 2013, Water Resources Research). Grid cells are analyzed for the exposition/shelter to wind by a directed sky view factor and corrected accordingly. A look-up table for sky-view factors in 5 degree steps can be calculated with the script LUT_SVFdir45.py
+
+Required input:
+DEM, timeseries of wind direction and velocities, glacier MASK, aspect, slope
+2D field of temperature, precipitation and radiation
+
+

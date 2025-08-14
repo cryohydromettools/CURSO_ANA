@@ -1,0 +1,26 @@
+Positive-Degree-Day Model, optional including a snowdrift parametrization
+Author: Franziska Temme
+Last update: 05. April 2023
+#######################################################
+
+Reference:
+Temme, Franziska; Farías-Barahona, David; Seehaus, Thorsten; Jaña, Ricardo; Arigony-Neto, Jorge; Gonzalez, Inti; Arndt, Anselm; Sauter, Tobias; Schneider, Christoph; Fürst, Johannes Jakob (in review): Strategies for Regional Modelling of Surface Mass Balance at the Monte Sarmiento Massif, Tierra del Fuego. https://doi.org/10.5194/egusphere-2022-1036
+
+There are two implementations:
+
+a) PDD_noSD
+The positive degree-day model calculates surface melt based on air temperature, distinguishing between snow and ice melt.
+Accumulation is taken from precipitation using a temperature threshold.
+
+Required input:
+2D field of temperature, precipitation, glacier mask
+
+
+b) PDD_inklSD
+The positive degree-day model calculates surface melt based on air temperature, distinguising between snow and ice melt. 
+Accumulation is taken from precipitation using a temperature threshold.
+The resulting snowfall is adjusted by a parametrization for snowdrift (slightly modified based on Warscher et al. 2013, Water Resources Research). Grid cells are analyzed for the exposition/shelter to wind by a directed sky view factor and corrected accordingly. A look-up table for sky-view factors in 5 degree steps can be calculated with the script LUT_SVFdir45.py
+
+Required input:
+DEM, timeseries of wind direction and velocities, glacier MASK, aspect, slope
+2D field of temperature, precipitation
